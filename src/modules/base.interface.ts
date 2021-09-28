@@ -1,0 +1,20 @@
+export enum StatusCodes {
+  SUCCESS = 'SUCCESS',
+  FAILURE = 'FAILURE',
+  VALIDATION_ERROR = 'VALIDATION_ERROR',
+  INVALID_TOKEN = 'INVALID_TOKEN',
+  USER_DO_NOT_EXISTS = 'USER_DO_NOT_EXISTS',
+  INVALID_CREDENTIALS = 'INVALID_CREDENTIALS',
+  EMAIL_ALREADY_EXISTS = 'EMAIL_ALREADY_EXISTS',
+  UNAUTHORIZED = 'UNAUTHORIZED',
+}
+
+export enum BaseStatus {
+  ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
+}
+
+export interface BooleanResponse {
+  status: StatusCodes;
+  data: boolean;
+}
