@@ -5,12 +5,20 @@ import {
   MiddlewareConsumer,
 } from '@nestjs/common';
 import { DatabaseModule } from 'root.module';
+import { AuthModule } from '@modules/auth/auth.module';
 import { UserModule } from '@modules/users/user.module';
 import { logger } from './middlewares/logger.middleware';
-import { AuthModule } from '@modules/auth/auth.module';
+import { SongsModule } from '@modules/songs/songs.module';
+import { PlaylistsModule } from '@modules/playlists/playlists.module';
 
 @Module({
-  imports: [DatabaseModule, AuthModule, UserModule],
+  imports: [
+    DatabaseModule,
+    AuthModule,
+    UserModule,
+    SongsModule,
+    PlaylistsModule,
+  ],
   controllers: [],
   providers: [],
 })
