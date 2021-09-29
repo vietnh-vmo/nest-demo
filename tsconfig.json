@@ -15,7 +15,8 @@
       "@commands/*": ["commands/*"],
       "@helper/*": ["helpers/*"],
       "@modules/*": ["modules/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@guards/*": ["guards/*"]
     },
   },
   "exclude": ["node_modules"],

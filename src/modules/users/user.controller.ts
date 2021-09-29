@@ -21,7 +21,7 @@ import {
 } from './user.interface';
 import { Request } from 'express';
 import { UserService } from './user.service';
-import { RequireAuth } from 'guard/auth.guard';
+import { RequireAuth } from '@guards/auth.guard';
 import { BooleanResponse, StatusCodes } from '@modules/base.interface';
 
 @Controller('user')
