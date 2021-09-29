@@ -1,4 +1,6 @@
+import { IsNotEmpty } from 'class-validator';
 import { StatusCodes } from './base.interface';
+import { IsObjectId } from 'class-validator-mongo-object-id';
 
 export class BaseResponse<T> {
   status: StatusCodes;
@@ -6,6 +8,8 @@ export class BaseResponse<T> {
 }
 
 export class DetailInput {
+  @IsNotEmpty()
+  @IsObjectId({ message: 'Must be objectId' })
   id: string;
 }
 

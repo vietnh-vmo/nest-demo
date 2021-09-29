@@ -44,7 +44,7 @@ export class PlaylistsService {
     if (search)
       conditions.$or = [
         { name: { $regex: search.trim(), $options: 'i' } },
-        { artist: { $regex: search.trim(), $options: 'i' } },
+        { description: { $regex: search.trim(), $options: 'i' } },
       ];
 
     if (userId) {
