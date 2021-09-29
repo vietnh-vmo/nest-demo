@@ -1,13 +1,13 @@
 import {
-  User,
   ListUserInput,
   CreateUserInput,
-  ListUserResponse,
   DetailUserInput,
   UpdateUserInput,
-} from './user.interface';
+  ListUserResponse,
+} from './user.dto';
 import { omit } from 'lodash';
 import { Model } from 'mongoose';
+import { User } from './user.interface';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { UserError } from '@helper/error.helpers';

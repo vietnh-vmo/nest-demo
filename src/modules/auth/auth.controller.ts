@@ -1,7 +1,7 @@
 import { AuthService } from './auth.service';
 import { StatusCodes } from '@modules/base.interface';
 import { Body, Controller, Post } from '@nestjs/common';
-import { AuthResponse, LoginInput } from '@modules/auth/auth.interface';
+import { AuthResponse, LoginInput } from '@modules/auth/auth.dto';
 
 @Controller('auth')
 export class AuthController {

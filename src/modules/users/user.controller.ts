@@ -11,15 +11,15 @@ import {
   Controller,
 } from '@nestjs/common';
 import {
-  User,
   UserResponse,
   ListUserInput,
   CreateUserInput,
   DetailUserInput,
   UpdateUserInput,
   ListUserResponse,
-} from './user.interface';
+} from './user.dto';
 import { Request } from 'express';
+import { User } from './user.interface';
 import { UserService } from './user.service';
 import { RequireAuth } from '@guards/auth.guard';
 import { BooleanResponse, StatusCodes } from '@modules/base.interface';

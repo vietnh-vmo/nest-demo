@@ -4,7 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { generateUserToken } from '@utils/jwt';
 import { UserError } from '@helper/error.helpers';
 import { User } from '@modules/users/user.interface';
-import { IDTokenPayload, LoginInput } from './auth.interface';
+import { IDTokenPayload, LoginInput } from './auth.dto';
 import { BaseStatus, StatusCodes } from '@modules/base.interface';
 
 @Injectable()
