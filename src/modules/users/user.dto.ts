@@ -1,5 +1,4 @@
-import { User } from './user.interface';
-import { BaseStatus, StatusCodes } from '@modules/base.interface';
+import { BaseStatus } from '@modules/base.interface';
 
 export class ListUserInput {
   page: number;
@@ -7,13 +6,6 @@ export class ListUserInput {
   search: string;
   status: BaseStatus;
 }
-
-export class ListUserResponse {
-  status?: StatusCodes;
-  total: number;
-  data: User[];
-}
-
 export class CreateUserInput {
   name: string;
   email: string;
@@ -26,13 +18,4 @@ export class UpdateUserInput {
   password: string;
   address: string;
   status: BaseStatus;
-}
-
-export class UserResponse {
-  status: StatusCodes;
-  data: User;
-}
-
-export class DetailUserInput {
-  id: string;
 }

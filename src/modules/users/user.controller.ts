@@ -11,20 +11,19 @@ import {
   Controller,
 } from '@nestjs/common';
 import {
-  UserResponse,
-  ListUserInput,
-  CreateUserInput,
-  DetailUserInput,
-  UpdateUserInput,
-  ListUserResponse,
-} from './user.dto';
+  DetailInput,
+  ListResponse,
+  BaseResponse,
+  BooleanResponse,
+} from '@modules/base.dto';
 import { Request } from 'express';
 import { User } from './user.interface';
 import { UserService } from './user.service';
 import { RequireAuth } from '@guards/auth.guard';
-import { BooleanResponse, StatusCodes } from '@modules/base.interface';
+import { StatusCodes } from '@modules/base.interface';
+import { ListUserInput, CreateUserInput, UpdateUserInput } from './user.dto';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
@@ -32,11 +31,13 @@ export class UserController {
    * Get users
    *
    * @param {ListUserInput} body
-   * @returns {Promise<ListUserResponse>}
+   * @returns {Promise<ListResponse<User>>}
    */
   @Get()
   @UseGuards(RequireAuth)
-  async getAllUsers(@Query() query: ListUserInput): Promise<ListUserResponse> {
+  async getAllUsers(
+    @Query() query: ListUserInput,
+  ): Promise<ListResponse<User>> {
     const data = await this.userService.get(query);
 
     return {
@@ -49,14 +50,14 @@ export class UserController {
    * Create user
    *
    * @param {CreateUserInput} body
-   * @returns {Promise<UserResponse>}
+   * @returns {Promise<BaseResponse<User>>}
    */
   @Post()
   @UseGuards(RequireAuth)
   async createUser(
     @Body() body: CreateUserInput,
     @Req() req: Request & { user: User },
-  ): Promise<UserResponse> {
+  ): Promise<BaseResponse<User>> {
     const data = await this.userService.create(body, req.user);
 
     return {
@@ -69,11 +70,11 @@ export class UserController {
    * Get one user
    *
    * @param {DetailUserInput} body
-   * @returns {Promise<UserResponse>}
+   * @returns {Promise<BaseResponse<User>>}
    */
   @Get('/:id')
   @UseGuards(RequireAuth)
-  async getOneUser(@Param() param: DetailUserInput): Promise<UserResponse> {
+  async getOneUser(@Param() param: DetailInput): Promise<BaseResponse<User>> {
     const data = await this.userService.getOne(param);
 
     return {
@@ -87,15 +88,15 @@ export class UserController {
    *
    * @param {DetailUserInput} param
    * @param {UpdateUserInput} body
-   * @returns {Promise<UserResponse>}
+   * @returns {Promise<BaseResponse<User>>}
    */
   @Put('/:id')
   @UseGuards(RequireAuth)
   async updateEmployee(
-    @Param() param: DetailUserInput,
+    @Param() param: DetailInput,
     @Body() body: UpdateUserInput,
     @Req() req: Request & { user: User },
-  ): Promise<UserResponse> {
+  ): Promise<BaseResponse<User>> {
     const data = await this.userService.update(param, body, req.user);
     return {
       status: StatusCodes.SUCCESS,
@@ -104,7 +105,7 @@ export class UserController {
   }
 
   /**
-   * Delete employee - CMS
+   * Delete user
    *
    * @param {DetailUserInput} param
    * @returns {Promise<BooleanResponse>}
@@ -112,7 +113,7 @@ export class UserController {
   @Delete('/:id')
   @UseGuards(RequireAuth)
   async deleteUser(
-    @Param() param: DetailUserInput,
+    @Param() param: DetailInput,
     @Req() req: Request & { user: User },
   ): Promise<BooleanResponse> {
     const data = await this.userService.delete(param, req.user);

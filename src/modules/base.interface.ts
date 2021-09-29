@@ -7,14 +7,11 @@ export enum StatusCodes {
   INVALID_CREDENTIALS = 'INVALID_CREDENTIALS',
   EMAIL_ALREADY_EXISTS = 'EMAIL_ALREADY_EXISTS',
   UNAUTHORIZED = 'UNAUTHORIZED',
+  SONG_DO_NOT_EXISTS = 'SONG_DO_NOT_EXISTS',
+  PLAYLIST_DO_NOT_EXISTS = 'PLAYLIST_DO_NOT_EXISTS',
 }
 
 export enum BaseStatus {
   ACTIVE = 'ACTIVE',
   INACTIVE = 'INACTIVE',
-}
-
-export interface BooleanResponse {
-  status: StatusCodes;
-  data: boolean;
 }

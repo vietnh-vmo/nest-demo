@@ -1,10 +1,3 @@
-import {
-  ListUserInput,
-  CreateUserInput,
-  DetailUserInput,
-  UpdateUserInput,
-  ListUserResponse,
-} from './user.dto';
 import { omit } from 'lodash';
 import { Model } from 'mongoose';
 import { User } from './user.interface';
@@ -12,12 +5,14 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { UserError } from '@helper/error.helpers';
 import { StatusCodes } from '@modules/base.interface';
+import { ListUserInput, CreateUserInput, UpdateUserInput } from './user.dto';
+import { DetailInput, ListResponse } from '@modules/base.dto';
 
 @Injectable()
 export class UserService {
   constructor(@InjectModel('User') private readonly userModel: Model<User>) {}
 
-  async get(query: ListUserInput): Promise<ListUserResponse> {
+  async get(query: ListUserInput): Promise<ListResponse<User>> {
     let { page, limit } = query;
     const { status, search } = query;
 
@@ -50,7 +45,7 @@ export class UserService {
     return { total, data };
   }
 
-  async getOne({ id }: DetailUserInput): Promise<User> {
+  async getOne({ id }: DetailInput): Promise<User> {
     const user = await this.userModel
       .findOne({
         _id: id,
@@ -84,7 +79,7 @@ export class UserService {
   }
 
   async update(
-    { id }: DetailUserInput,
+    { id }: DetailInput,
     body: UpdateUserInput,
     reqUser: User,
   ): Promise<User> {
@@ -107,7 +102,7 @@ export class UserService {
     return omit({ ...user }['_doc'], ['password']);
   }
 
-  async delete({ id }: DetailUserInput, reqUser: User): Promise<boolean> {
+  async delete({ id }: DetailInput, reqUser: User): Promise<boolean> {
     const user = await this.userModel.findOne({
       _id: id,
       deletedAt: null,
