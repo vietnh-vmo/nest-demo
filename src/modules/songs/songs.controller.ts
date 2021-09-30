@@ -5,24 +5,24 @@ import {
   Post,
   Body,
   Param,
+  Query,
   Delete,
   UseGuards,
   Controller,
-  Query,
 } from '@nestjs/common';
-import {
-  DetailInput,
-  ListResponse,
-  BaseResponse,
-  BooleanResponse,
-} from '@modules/base.dto';
 import { Request } from 'express';
 import { Song } from './songs.interface';
 import { SongsService } from './songs.service';
 import { RequireAuth } from '@guards/auth.guard';
 import { User } from '@modules/users/user.interface';
-import { StatusCodes } from '@modules/base.interface';
-import { CreateSongInput, ListSongsInput, UpdateSongInput } from './songs.dto';
+import { ListSongsInput } from './dto/list-songs.dto';
+import { UpdateSongInput } from './dto/update-song.dto';
+import { CreateSongInput } from './dto/create-song.dto';
+import { StatusCodes } from '@modules/_base/base.interface';
+import { DetailInput } from '@modules/_base/dto/detail-input.dto';
+import { ListResponse } from '@modules/_base/dto/list-response.dto';
+import { BaseResponse } from '@modules/_base/dto/base-response.dto';
+import { BooleanResponse } from '@modules/_base/dto/bool-response.dto';
 
 @Controller('songs')
 export class SongsController {

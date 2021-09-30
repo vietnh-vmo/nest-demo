@@ -11,23 +11,19 @@ import {
   UseGuards,
   Controller,
 } from '@nestjs/common';
-import {
-  DetailInput,
-  BaseResponse,
-  ListResponse,
-  BooleanResponse,
-} from '@modules/base.dto';
-import {
-  ListPlaylistsInput,
-  CreatePlaylistInput,
-  UpdatePlaylistInput,
-  AddCollabInput,
-} from './playlists.dto';
 import { RequireAuth } from '@guards/auth.guard';
 import { Playlist } from './playlists.interface';
 import { User } from '@modules/users/user.interface';
-import { StatusCodes } from '@modules/base.interface';
+import { AddCollabInput } from './dto/add-collab.dto';
 import { PlaylistsService } from './playlists.service';
+import { StatusCodes } from '@modules/_base/base.interface';
+import { ListPlaylistsInput } from './dto/list-playlists.dto';
+import { CreatePlaylistInput } from './dto/create-playlist.dto';
+import { UpdatePlaylistInput } from './dto/update-playlist.dto';
+import { DetailInput } from '@modules/_base/dto/detail-input.dto';
+import { BaseResponse } from '@modules/_base/dto/base-response.dto';
+import { ListResponse } from '@modules/_base/dto/list-response.dto';
+import { BooleanResponse } from '@modules/_base/dto/bool-response.dto';
 
 @Controller('playlists')
 export class PlaylistsController {

@@ -1,4 +1,4 @@
-import { BaseStatus } from '../base.interface';
+import { BaseStatus } from '../_base/base.interface';
 
 export interface User extends Document {
   readonly _id: string;

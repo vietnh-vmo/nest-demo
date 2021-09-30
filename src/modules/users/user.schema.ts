@@ -2,7 +2,7 @@ import { clone } from 'lodash';
 import * as bcrypt from 'bcrypt';
 import * as mongoose from 'mongoose';
 import { User } from './user.interface';
-import { BaseStatus } from '../base.interface';
+import { BaseStatus } from '../_base/base.interface';
 
 const ObjectId = mongoose.Types.ObjectId;
 

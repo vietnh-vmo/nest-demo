@@ -10,18 +10,18 @@ import {
   UseGuards,
   Controller,
 } from '@nestjs/common';
-import {
-  DetailInput,
-  ListResponse,
-  BaseResponse,
-  BooleanResponse,
-} from '@modules/base.dto';
 import { Request } from 'express';
 import { User } from './user.interface';
 import { UserService } from './user.service';
 import { RequireAuth } from '@guards/auth.guard';
-import { StatusCodes } from '@modules/base.interface';
-import { ListUserInput, CreateUserInput, UpdateUserInput } from './user.dto';
+import { ListUserInput } from './dto/list-users.dto';
+import { CreateUserInput } from './dto/create-user.dto';
+import { UpdateUserInput } from './dto/update-user.dto';
+import { StatusCodes } from '@modules/_base/base.interface';
+import { DetailInput } from '@modules/_base/dto/detail-input.dto';
+import { ListResponse } from '@modules/_base/dto/list-response.dto';
+import { BaseResponse } from '@modules/_base/dto/base-response.dto';
+import { BooleanResponse } from '@modules/_base/dto/bool-response.dto';
 
 @Controller('users')
 export class UserController {

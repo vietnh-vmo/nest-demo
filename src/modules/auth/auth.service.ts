@@ -3,9 +3,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { generateUserToken } from '@utils/jwt';
 import { UserError } from '@helper/error.helpers';
+import { LoginInput } from './dto/login-input.dto';
 import { User } from '@modules/users/user.interface';
-import { IDTokenPayload, LoginInput } from './auth.dto';
-import { BaseStatus, StatusCodes } from '@modules/base.interface';
+import { IDTokenPayload } from './dto/token-payload.dto';
+import { BaseStatus, StatusCodes } from '@modules/_base/base.interface';
 
 @Injectable()
 export class AuthService {

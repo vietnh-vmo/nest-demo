@@ -6,8 +6,8 @@ import {
 } from '@nestjs/common';
 import { decodeToken } from '../utils/jwt';
 import { UserError } from '../helpers/error.helpers';
-import { StatusCodes } from '../modules/base.interface';
 import { UserService } from '../modules/users/user.service';
+import { StatusCodes } from '../modules/_base/base.interface';
 
 @Injectable()
 export class RequireAuth implements CanActivate {

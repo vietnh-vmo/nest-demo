@@ -4,9 +4,12 @@ import { User } from './user.interface';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { UserError } from '@helper/error.helpers';
-import { StatusCodes } from '@modules/base.interface';
-import { ListUserInput, CreateUserInput, UpdateUserInput } from './user.dto';
-import { DetailInput, ListResponse } from '@modules/base.dto';
+import { ListUserInput } from './dto/list-users.dto';
+import { CreateUserInput } from './dto/create-user.dto';
+import { UpdateUserInput } from './dto/update-user.dto';
+import { StatusCodes } from '@modules/_base/base.interface';
+import { DetailInput } from '@modules/_base/dto/detail-input.dto';
+import { ListResponse } from '@modules/_base/dto/list-response.dto';
 
 @Injectable()
 export class UserService {

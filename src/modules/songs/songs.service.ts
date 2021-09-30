@@ -4,9 +4,12 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { UserError } from '@helper/error.helpers';
 import { User } from '@modules/users/user.interface';
-import { StatusCodes } from '@modules/base.interface';
-import { DetailInput, ListResponse } from '@modules/base.dto';
-import { CreateSongInput, ListSongsInput, UpdateSongInput } from './songs.dto';
+import { ListSongsInput } from './dto/list-songs.dto';
+import { CreateSongInput } from './dto/create-song.dto';
+import { UpdateSongInput } from './dto/update-song.dto';
+import { StatusCodes } from '@modules/_base/base.interface';
+import { DetailInput } from '@modules/_base/dto/detail-input.dto';
+import { ListResponse } from '@modules/_base/dto/list-response.dto';
 
 @Injectable()
 export class SongsService {

@@ -1,17 +1,16 @@
-import {
-  ListPlaylistsInput,
-  CreatePlaylistInput,
-  UpdatePlaylistInput,
-  AddCollabInput,
-} from './playlists.dto';
 import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Playlist } from './playlists.interface';
 import { UserError } from '@helper/error.helpers';
 import { User } from '@modules/users/user.interface';
-import { StatusCodes } from '@modules/base.interface';
-import { DetailInput, ListResponse } from '@modules/base.dto';
+import { AddCollabInput } from './dto/add-collab.dto';
+import { StatusCodes } from '@modules/_base/base.interface';
+import { ListPlaylistsInput } from './dto/list-playlists.dto';
+import { CreatePlaylistInput } from './dto/create-playlist.dto';
+import { UpdatePlaylistInput } from './dto/update-playlist.dto';
+import { DetailInput } from '@modules/_base/dto/detail-input.dto';
+import { ListResponse } from '@modules/_base/dto/list-response.dto';
 
 @Injectable()
 export class PlaylistsService {

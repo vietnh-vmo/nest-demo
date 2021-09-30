@@ -4,7 +4,7 @@ import {
   RequestMethod,
   MiddlewareConsumer,
 } from '@nestjs/common';
-import { DatabaseModule } from 'root.module';
+import { DatabaseModule } from './root.module';
 import { AuthModule } from '@modules/auth/auth.module';
 import { UserModule } from '@modules/users/user.module';
 import { logger } from './middlewares/logger.middleware';
