@@ -12,6 +12,7 @@ import {
 } from '@nestjs/common';
 import { Request } from 'express';
 import { Song } from './songs.interface';
+import { ApiTags } from '@nestjs/swagger';
 import { SongsService } from './songs.service';
 import { RequireAuth } from '@guards/auth.guard';
 import { User } from '@modules/users/user.interface';
@@ -24,6 +25,7 @@ import { ListResponse } from '@modules/_base/dto/list-response.dto';
 import { BaseResponse } from '@modules/_base/dto/base-response.dto';
 import { BooleanResponse } from '@modules/_base/dto/bool-response.dto';
 
+@ApiTags('songs')
 @Controller('songs')
 export class SongsController {
   constructor(private readonly songsService: SongsService) {}

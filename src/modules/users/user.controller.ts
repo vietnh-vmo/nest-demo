@@ -12,6 +12,7 @@ import {
 } from '@nestjs/common';
 import { Request } from 'express';
 import { User } from './user.interface';
+import { ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
 import { RequireAuth } from '@guards/auth.guard';
 import { ListUserInput } from './dto/list-users.dto';
@@ -23,6 +24,7 @@ import { ListResponse } from '@modules/_base/dto/list-response.dto';
 import { BaseResponse } from '@modules/_base/dto/base-response.dto';
 import { BooleanResponse } from '@modules/_base/dto/bool-response.dto';
 
+@ApiTags('users')
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}

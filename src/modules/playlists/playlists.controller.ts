@@ -11,6 +11,7 @@ import {
   UseGuards,
   Controller,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { RequireAuth } from '@guards/auth.guard';
 import { Playlist } from './playlists.interface';
 import { User } from '@modules/users/user.interface';
@@ -25,6 +26,7 @@ import { BaseResponse } from '@modules/_base/dto/base-response.dto';
 import { ListResponse } from '@modules/_base/dto/list-response.dto';
 import { BooleanResponse } from '@modules/_base/dto/bool-response.dto';
 
+@ApiTags('playlists')
 @Controller('playlists')
 export class PlaylistsController {
   constructor(private readonly playlistsService: PlaylistsService) {}
